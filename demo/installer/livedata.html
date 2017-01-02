@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>ISensit Gateway Demo</title>
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script src="installer/js/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Data</title>
+</head>
+<body>
+    <ul id="messages"></ul>
+    <input type="text" id="myMessage">
+    <button id="sendbutton">Send</button>
+</body>
+<script>
+
+    //var socket = io.connect('http://192.168.0.127:5000/test');
+    var socket = io.connect('http://192.168.0.127:5000/test', { transports: ["websocket"]});
+
+  /*  socket.on('my event', function(msg){
+        socket.send('User has connected!')
+    });
+    */
+    socket.on('my response', function(msg){
+        console.log(socket.io.engine.transport.name);
+       // $('#messages').html('')
+       console.log('event recieved!')
+        $('#messages').append('<li>'+msg.data+'</li>')    
+    })     
+   
+    
+    $('#sendbutton').on('click', function(){
+        socket.emit('my event', {data: $('#myMessage').val()});
+//        socket.send($('#myMessage').val());
+        $('#myMessage').val('');
+    })
+</script>
+
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>ISensit Gateway Demo</title>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="js/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Machine Installation</title>
+</head>
+<body>
+<div class="container">
+    <!-- <button class="btn btn-success pull-right" id="loginBtn" style="margin-top:10px;">Login</button> -->
+
+    <div class="row">
+    
+        <div style="margin-top: 20%;"></div>
+        <h1 class="text-center">fit20 Installation</h1>
+        <div style="margin-top: 3%;"></div>
+
+
+        <div class="col-sm-12">
+           <form class="form-horizontal" action="#" name="installer_form"
+                                              method="POST" id="installer_form">
+            <div class="box-body">
+            <div class="form-group col-sm-4 text-center">
+                <label for="studioSelect">Studio</label><select class="form-control select2 select2-hidden-accessible text-center" id="studioSelect" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                    <option selected="selected"></option>
+                </select>
+            </div>
+
+            <div class="form-group col-sm-4 text-center" style="margin-left:2px;">
+                <label for="machineSelect">Machine</label><select class="form-control select2 select2-hidden-accessible text-center" id="machineSelect" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                <option selected="selected"></option>
+
+            </select>
+            </div>
+
+            <div class="form-group  col-sm-4 text-center" style="margin-left:2px;">
+                <label for="sensorSelect">Sensor to Pair</label><select class="form-control select2 select2-hidden-accessible text-center" id="sensorSelect" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                <option selected="selected"></option>
+            </select>
+            </div>
+   
+            <div class="form-group">
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <button type="button" class="btn btn-lg btn-warning col-xs-offset-1 col-xs-4"
+                            id="installer_btn_scan" value="Scan">Scan
+                    </button>
+                    
+                    <button  class="btn btn-lg btn-success col-xs-offset-1 col-xs-4"
+                            id="installer_btn_done" value="Install">Install
+                    </button>            
+                <!-- /.box-footer -->
+                   </div>
+               </div>
+            </form>          
+        </div>
+<!-- table start -->
+        <br/>
+        <div class="table-responsive" id="tablePairList">          
+        <table class="table">
+        <blockquote style="background-color: #c3efe9;">
+        
+        <p style="font-size: 16px;">List of paired machines in this studio. Press<strong> delete</strong> to unpair..</p>
+        </blockquote>
+        <thead>
+          <tr>
+            <th>#id</th>
+            <th>Machine</th>
+            <th>Sensor</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        </table>
+        </div>
+        <!-- end of table -->
+        
+        <!-- modal start -->
+        <div class="modal fade " id="installModal" tabindex="-1" role="dialog"
+         aria-labelledby="deviceSelectModalLabel" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">Please press Start to begin
+                    
+                </div>
+                <div class="modal-body">
+                       <div style="font-size:2em;"> Values: <span id="sensorValue"></span></div>
+                    <div class="row col-sm-offset-1 col-sm-10">
+                    </div>
+                </div>
+            <div class="modal-footer">
+                <button class="btn btn-success col-sm-4 col-sm-offset-2" id="startBtn">Start</button>
+                <button class="btn btn-warning col-sm-4 col-sm-offset-2 hidden" id="stopBtn">Stop</button>
+                <button class="btn btn-danger col-sm-4" data-dismiss="modal" aria-label="Close" aria-hidden="true" id="cancelBtn">Cancel</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+        
+        <!-- modal end -->
+
+        
+    </div>
+    <!-- end of row -->
+</div>
+<!-- end of container -->
+
+<script>
+var apiUrl = window.location.origin + ':8001';
+var apiHost = apiUrl + '/fit20/v1.0/';
+var devices ;
+var sensorsList;
+var studiosList;
+var current_studio_id;
+var post_action_url;
+var current_sensor_mac;
+var current_sensor_id;
+$('#installer_btn_done').prop('disabled', true);
+
+getStudiosList();
+//getSensorsList();
+//updateSensorList();
+function deleteModal(){
+    $('.deleteBtn').off('click');
+
+    
+    $('.deleteBtn').click(function(){
+    var machineID = $(this).closest("tr")   // Finds the closest row <tr>
+       .find(".machineID")     // Gets a descendent with class="nr"
+       .text(); 
+       console.log(machineID) ;
+    var machineName = $(this).closest("tr")   // Finds the closest row <tr>
+       .find(".machineName")     // Gets a descendent with class="nr"
+       .text(); 
+       console.log(machineName) ;
+    var machineSensor = $(this).closest("tr")   // Finds the closest row <tr>
+       .find(".machineSensor")     // Gets a descendent with class="nr"
+       .text(); 
+       console.log(machineSensor) ;
+
+    swal({
+      title: "Are you sure?",
+      text: "The sensor will be unpaired.",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Yes, unpair it!",
+      closeOnConfirm: false
+    },
+    function(){
+        var data = {};
+        data['action'] = 'create'
+       var delete_action_url=apiHost + 'studios/' + current_studio_id + '/machines/' + machineID + '/installer';
+
+        
+    $.ajax({
+        type : "DELETE",
+        url : delete_action_url,
+        data: JSON.stringify(data),
+        contentType: 'application/json;charset=UTF-8',
+        success: function(result) {
+            console.log(result);
+            swal("Deleted!", "Sensor has been unpaired.", "success");
+            updateInfo();
+        },
+        error: function(status, error){
+            swal("Could not delete", error, "error"); 
+        }
+        
+    });
+    
+    });
+    });
+}
+
+$('#tablePairList').hide();
+    $(function () {
+    
+    // post for generic forms
+        $("#installer_btn_done").click(function (e) {
+        
+            e.preventDefault();
+            $('#installer_btn_done').prop('disabled', true);
+            $('#installer_btn_done').text("Connecting..");
+
+            var data = {};
+            studio_id = $('#studioSelect option:selected').val();
+            if ( studio_id == ""){
+                swal('Studio not selected', "info");
+                return false;
+            };
+            machine_id = $('#machineSelect option:selected').val();
+            if ( machine_id == ""){
+                alert('Machine not selected');
+                return false;
+            };
+            data['sensor_name'] = $('#sensorSelect option:selected').html();
+            if ( data['sensor_name'] == ""){
+                swal('Sensor not selected', 'info');
+                return false;
+            };
+            current_sensor_name=data['sensor_name']
+
+            
+            if (typeof sensorsList != 'undefined'){
+            
+                for (i = 0; i < sensorsList.length; ++i){
+                    console.log(sensorsList[i].name)
+                    if( sensorsList[i].name == $('#sensorSelect option:selected').html()) {
+                        data['sensor_mac_addr'] = sensorsList[i].mac
+                    };
+                }
+                current_sensor_mac=data['sensor_mac_addr']
+
+            }
+              else {
+                swal('Scan/Select a sensor', 'info')
+                return false;
+            }
+
+            if ( data['sensor_mac_addr'] == ""){
+                alert('Mac not found.. scan again');
+              //  return false;
+            };
+            
+            data['action']="create";
+            post_action_url=apiHost + 'studios/' + studio_id + '/machines/' + machine_id + '/installer';
+            console.log(data);
+            $.ajax({
+                type : "POST",
+                url : post_action_url,
+                data: JSON.stringify(data),
+                contentType: 'application/json;charset=UTF-8',
+                success: function(result) {
+                    console.log(result);
+//                    $('#installModal').modal('show');
+                installModal();
+                },
+                error: function(status, error){
+                    completeInstall();
+                    console.log(error);
+                    swal("Could not conenct", "Sensor not registered", "error"); 
+                }
+            });
+        });
+    });
+    
+$('#startBtn').click(function(){
+    startInstall();
+})
+    
+$('#cancelBtn').click(function(){
+    stopInstall();
+})
+    
+
+$('#loginBtn').click();
+
+function installModal(){
+    swal({
+        title: "Please position yourself",
+        text: "You will need to perform an exercise to move the sensor. Press start when you are ready.",
+        type: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Start",
+        closeOnConfirm: false,
+        showLoaderOnConfirm: true,
+        allowOutsideClick: false,
+        closeOnCancel: false
+
+    },
+    function(isConfirm){
+        if(isConfirm){
+            
+            $('.sweet-alert.showSweetAlert.visible>h2').html("Please move the sensor");
+            $('.sweet-alert.showSweetAlert.visible>p').html("Continue slowly for about 15 seconds");
+
+            var data = {};
+            data['action'] = 'start';
+                data['sensor_name'] = current_sensor_name;
+                data['sensor_mac_addr'] = current_sensor_mac;          
+                $.ajax({
+                type : "POST",
+                url : post_action_url,
+                data: JSON.stringify(data),
+                contentType: 'application/json;charset=UTF-8',
+                success: function(result) {
+                    console.log(result);
+                    $('#startBtn').hide()
+                    getLiveData();
+                    swal('Great!', 'The sensor has been paired.', 'success');
+                    updateInfo();
+                },
+                error: function(xhr, status, error){
+                    swal(status, error, "error");
+                }
+            });
+        } // true
+        else{
+            stopInstall();
+            swal("Cancelled", "You can start again.", "error");
+        }; //end else
+        completeInstall();
+    }); //end confirm function
+};
+
+function startInstall(){
+    var data = {};
+    console.log("Start install started")
+    data['action'] = 'start'
+    data['sensor_name'] = $('#sensorSelect option:selected').html();
+     for (i = 0; i < sensorsList.length; ++i){
+                        console.log(sensorsList[i].name)
+                        if( sensorsList[i].name == $('#sensorSelect option:selected').html()) {
+                            data['sensor_mac_addr'] = sensorsList[i].mac
+                        };
+                    }
+                    
+    console.log(post_action_url);
+    $.ajax({
+        type : "POST",
+        url : post_action_url,
+        data: JSON.stringify(data),
+        contentType: 'application/json;charset=UTF-8',
+        success: function(result) {
+            console.log(result);
+            $('#startBtn').hide()
+        }
+    });
+}
+
+
+
+function getLiveData(){
+    $('#sensorValue').html('Getting live data..');
+    
+
+}
+
+function stopInstall(){
+    //$('#startBtn').show();
+    
+    var data = {};
+    data['action'] = 'stop'
+    data['sensor_name'] = current_sensor_name;
+    data['sensor_mac_addr'] = current_sensor_mac;
+
+    $.ajax({
+        type : "POST",
+        url : post_action_url,
+        data: JSON.stringify(data),
+        contentType: 'application/json;charset=UTF-8',
+        success: function(result) {
+            console.log(result);
+        }
+    });
+    completeInstall();
+}
+
+function completeInstall(){
+    $('#installer_btn_done').prop('disabled', false);
+    $('#installer_btn_done').text("Install");
+}
+    
+function install_action(action) {
+    $.post(apiHost + "sessionmanager",
+            {
+                action: action,
+                machine: machineName
+            },
+            function (data, status) {
+                if (data[0].status =="error"){
+                    $('#sessionErrorAlert').html( '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' + "Error: " +  data[1].message);
+                    $('#sessionErrorAlert').show()
+                }
+            });
+        }
+        $('#sensorSelect').append('<option value=""disabled selected >Please press scan to find your sensor</option>');
+
+function getStudiosList(){
+    $('#studioSelect').empty();
+    $("#studioSelect option:selected").text("Getting studios, please wait..");
+    getUrl= apiHost + 'studios'
+    console.log(getUrl);
+
+    $.get(getUrl, function (studios) {
+        studiosList = studios.data
+        $('#studioSelect').append('<option disabled selected value="">Select a studio</option>');
+        $.each(studiosList, function( index, value ) {
+            $('#studioSelect').append('<option value='+ studiosList[index].id + '>'+ studiosList[index].name +'</option>');
+        });
+    })
+};
+
+function getSensorsList(){
+    $('#installer_btn_scan').prop("disabled", true);
+    console.log("Getting studio list");
+    $("#sensorSelect option:selected").text("Scanning..");
+
+    getUrl= apiHost + 'sensors'
+    console.log(getUrl);
+
+    $.get(getUrl, function (sensors) {
+        console.log(sensors.data);
+        sensorsList = sensors.data
+        $('#sensorSelect').empty();
+
+        $.each(sensorsList, function( index, value ) {
+            $('#sensorSelect').append('<option value='+ sensorsList[index].id + '>'+ sensorsList[index].name +'</option>');
+        });
+            $('#installer_btn_scan').prop("disabled", false);
+            $('#sensorSelect').append('<option value=""disabled selected >Select sensor on the machine</option>');
+        })
+};
+$( "#studioSelect" ).change(function(){
+    updateInfo();
+})
+
+$( "#sensorSelect" ).change(function(){
+    $('#installer_btn_done').prop('disabled', false);
+})
+
+function deleteSensor(studio, machine, id){
+    id=$("#studioSelect").val();
+    getUrl=  apiHost + 'studios/'+ id + '/machines'   
+    $.ajax({
+    url: '/script.cgi',
+    type: 'DELETE',
+    success: function(result) {
+            // Do something with the result
+            updateInfo();
+        }
+    });
+}
+
+function updateInfo() {
+    $('#tablePairList').show();
+    id=$("#studioSelect").val();
+    current_studio_id=id;
+    getUrl=  apiHost + 'studios/'+ id + '/machines'
+    console.log(getUrl);
+    $.get(getUrl, function (machines) {
+        console.log(machines.data);
+        machinesList = machines.data
+        $("table tr").remove();
+        $('#machineSelect').empty();
+
+        $.each(machinesList, function( index, value ) {
+           console.log(machinesList[index].status)
+
+            if(machinesList[index].status=='Paired'){    
+                $("table").append("<tr>"+
+                '<td class="machineID">' + machinesList[index].id + "</td>"  +
+                '<td class="machineName">' + machinesList[index].name + "</td>"  +
+                '<td class="machineSensor">' + machinesList[index].sensor + "</td>"  +
+                '<td><button class="deleteBtn btn btn-danger">Delete</button></td>'+
+                "</tr>");
+                $('#machineSelect').append('<option  style="background:green; color:white;" value='+ machinesList[index].id + '>'+ machinesList[index].name +'</option>');
+            }
+            
+            else{
+          /*      $("table").append("<tr>"+
+                "<td>" + machinesList[index].id + "</td>"  +
+                "<td>" + machinesList[index].name + "</td>"  +
+                "</tr>");*/
+                $('#machineSelect').append('<option value='+ machinesList[index].id + '>'+ machinesList[index].name +'</option>');
+            }
+        });
+        deleteModal();
+    })
+};   
+
+$('#installer_btn_scan').click(function(){getSensorsList();})
+
+$('.deleteBtn').click(function(){console.log("woooo")})
+
+
+    
+</script>
+
+
+</body>
+</html>

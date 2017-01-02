@@ -1,0 +1,143 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>ISensit Gateway API</title>
+  <meta name="description" content="ISensit Gateway>
+  <meta name="author" content="SitePoint">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js" integrity="sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+
+<body>
+
+
+<h1>Welcome to the ISensit Gateway API</h1>
+
+<p>Here are a list of things you can do </p>
+<div class="bs-example" data-example-id="hoverable-table">
+<table class="table table-hover">
+    <p>URIs relative to <a href= "javascript:window.open(window.location.origin+':8000/api/1.0');">API Homepage</a></p>
+    <thead>
+    <tr>
+        <th>Resource</th>
+        <th>Method</th>
+        <th>HTTP request</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">index</th>
+        <td><a href= "javascript:window.open(window.location.origin+':8000/api/1.0/'+'index');">GET</a></td>
+        <td>/index</td>
+        <td>Homepage</td>
+    </tr>
+    <tr>
+        <th scope="row">index</th>
+        <td><a href= "#">POST</a></td>
+        <td>/index/<b style="color:mediumvioletred;">id</b></td>
+        <td>Add config data</td>
+    </tr>
+    <tr>
+        <th scope="row">config</th>
+        <td><a href="javascript:window.open(window.location.origin+':8000/api/1.0/'+'config');">GET</a></td>
+        <td>/config</td>
+        <td>Get devices configuration data</td>
+    </tr>
+    <tr>
+        <th scope="row">config</th>
+        <td><a href= "javascript:window.open(window.location.origin+':8000/api/1.0/'+'config/<id>');">GET</a></td>
+        <td>/config/<b style="color:mediumvioletred;">id</b></td>
+        <td>Get gateway configuration data</td>
+    </tr>
+    
+    <tr>
+        <th scope="row">config</th>
+        <td><a href= "javascript:window.open(window.location.origin+':8000/api/1.0/'+'config/<id>');">POST</a></td>
+        <td>/config/<b style="color:mediumvioletred;">id</b></td>
+        <td>Post new gateway configuration data</td>
+    </tr>
+
+    <tr>
+        <th scope="row">config</th>
+        <td><a href= "javascript:window.open(window.location.origin+':8000/api/1.0/'+'config/<id>');">DELETE</a></td>
+        <td>/config/<b style="color:mediumvioletred;">id</b></td>
+        <td>Delete gateway configuration data</td>
+    </tr>
+    
+    <tr>
+        <th scope="row">about</th>
+        <td><a href= "javascript:window.open(window.location.origin+':8000/api/1.0/'+'about');">GET</a></td>
+        <td>/about</td>
+        <td>About Gateway</td>
+    </tr>
+    <tr>
+        <th scope="row">get_supported_devices</th>
+        <td><a href="javascript:window.open(window.location.origin+':8000/api/1.0/'+'get_supported_devices');">GET</a></td>
+        <td>/get_supported_devices</td>
+        <td>Get supported devices</td>
+    </tr>
+    
+    </tbody>
+</table>
+</div>
+
+<div class="bs-example" data-example-id="hoverable-table">
+<table class="table table-hover">
+    <p>ISensit BLE API</p>
+    <thead>
+    <tr>
+        <th>Resource</th>
+        <th>Method</th>
+        <th>HTTP request</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">scan</th>
+        <td><a href= "javascript:window.open(window.location.origin+':8000/api/1.0/'+'ble/scan');">GET</a></td>
+        <td>/ble/scan</td>
+        <td>Scan BLE Devices</td>
+    </tr>
+    <tr>
+        <th scope="row">connect</th>
+        <td><a href= "javascript:window.open(window.location.origin+':8000/api/1.0/'+'ble/connect');">GET</a></td>
+        <td>/ble/connect/<b style="color:mediumvioletred;">name</b></td>
+        <td>Connect to a BLE Device</td>
+    </tr>
+    <tr>
+        <th scope="row">get_rt_data</th>
+        <td><a href= "javascript:window.open(window.location.origin+':8000/api/1.0/'+'ble/get_rt_data');">GET</a></td>
+        <td>/ble/get_rt_data/<b style="color:mediumvioletred;">name</b></td>
+        <td>Get BLE Realtime Data</td>
+    </tr>
+    <tr>
+        <th scope="row">disconnect</th>
+        <td><a href="javascript:window.open(window.location.origin+':8000/api/1.0/'+'ble/disconnect');">GET</a></td>
+        <td>/ble/disconnect/<b style="color:mediumvioletred;">name</b></td>
+        <td>Disconnect a BLE devices</td>
+    </tr>
+    <tr>
+        <th scope="row">status</th>
+        <td><a href="javascript:window.open(window.location.origin+':8000/api/1.0/'+'ble/status');">GET</a></td>
+        <td>/ble/status</td>
+        <td>GET BLE Status</td>
+    </tr>
+    </tbody>
+</table>
+</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>

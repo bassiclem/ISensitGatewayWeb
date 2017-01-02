@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>fit20 | Registration Page</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="../../plugins/iCheck/square/blue.css">
+    <link rel="stylesheet" href="css/isensitGW.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .progress, .progress>.progress-bar, .progress .progress-bar, .progress>.progress-bar .progress-bar {
+        border-radius: 13px;
+    }</style>
+</head>
+
+<body class="hold-transition ">
+
+<div class="col-md-12">
+
+    <div style="margin-top:0%;"></div>
+
+    <p class="text-center">
+    <div class="login-logo">
+        <a><b>fit</b>20</a> &nbsp; Training Session
+    </div>
+    </p>
+<div style="margin-top:3%;"></div>
+
+    <div class="row">
+    <h3 class="col-sm-6 text-center"  id="machineName">Machine Name</h3>
+    <h3 class="col-sm-6 text-center" >Reps:&nbsp;<span id="repCounter">0</span>/<span id="repTotal">0</span></h3>
+    </div>
+    <ul style="list-style-type:none;">
+        <li>
+            <div class="progress-group text-center">
+                <!--<span class="progress-number" id="target-progress-number"></span>-->
+                <div class="progress" style="
+    height: 100px;
+">
+                    <div class="progress-bar progress-bar-aqua" style="width: 3.5%" id="target-progress"><span class="pull-left" style="padding-left: 20px; padding-top:40px; color: black; font-size: 4em;">Reference</span></div>
+                </div>
+                <!--<span class="progress-number" id="user-progress-number"></span>-->
+                <div class="progress" style="
+    height: 100px;
+   ">
+                    <div class="progress-bar progress-bar-green" style="width: 3.5%" id="user-progress"></div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="clearfix"></div>
+<div class="box text-center " >
+    <div class="box-header">
+        <!--<h3 class="box-title">Controls</h3>-->
+    </div>
+    <div class="box-body ">
+
+        <a class="btn btn-app btn-flat" type="button" id="backBtn">
+            <i class="fa fa-step-backward"></i> Back
+        </a>
+
+        <a class="btn btn-app bg-navy btn-flat" type="button" id="calibrateBtn">
+            <i class="fa fa-bolt"></i> Calibrate
+        </a>
+        <a class="btn btn-app bg-olive btn-flat" type="button" id="playBtn">
+            <i class="fa fa-play "></i> Play
+        </a>
+        <a class="btn btn-app  bg-orange btn-flat" type="button" id="pauseBtn">
+            <i class="fa fa-pause"></i> Stationary
+        </a>
+        <!-- <a class="btn btn-app  bg-aqua btn-flat" type="button" id="restartBtn"> -->
+            <!-- <i class="fa fa-repeat"></i> Restart -->
+        <!-- </a> -->
+        <a class="btn btn-app  bg-maroon btn-flat" type="button" id="stopBtn">
+            <i class="fa fa-stop"></i> Stop
+        </a>
+
+    </div>
+
+    <div id="sessionPage"></div>
+
+    <h1 id="countdown1" hidden="true" style="font-size: 200px;">1</h1>
+    <h1 id="countdown2" hidden="true" style="font-size: 200px;">2</h1>
+    <h1 id="countdown3" hidden="true" style="font-size: 200px;">3</h1>
+
+
+    <div class="modal fade " id="completedModal" tabindex="-1" role="dialog"
+         aria-labelledby="deviceSelectModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row col-sm-offset-1 col-sm-10">
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h4><i class="icon fa fa-check"></i> Thank you for Training!</h4>
+                            Loading your results...
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade " id="pausedModal" tabindex="-1" role="dialog"
+         aria-labelledby="deviceSelectModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row col-sm-offset-1 col-sm-10">
+                        <div class="alert alert-info alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h4><i class="icon fa fa-pause"></i> Paused!</h4>
+                            <p>Press Play or Stop to continue..</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div></div>Real Degree:&nbsp;<span id="realValue"></span></div>
+
+    <div class="row col-sm-offset-1 col-sm-10 navbar-fixed-bottom">
+        <div class="alert alert-danger alert-dismissible" hidden="true" id="sessionErrorAlert">
+        </div>
+    </div>
+    <!-- /.box-body -->
+</div>
+
+
+
+<!-- jQuery 2.2.3 -->
+<script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<!-- iCheck -->
+<script src="../../plugins/iCheck/icheck.min.js"></script>
+
+<script>
+    var apiUrl = window.location.origin + ':8001';
+    var apiHost = apiUrl + '/api/fit20/1.0/';
+    console.log(apiHost);
+    var devices;
+    var users;
+    var multiplicationFactorUserBar = 3.6;
+    var userDegree = 0;
+    var referenceDegree = 0;
+    var session_status = 'idle';
+    function setProgrees(){
+        console.log("difference:" , referenceDegree - userDegree);
+        if( (referenceDegree - userDegree) >= 30 || (referenceDegree - userDegree) <= -30){
+            $('#user-progress').attr('class', "progress-bar progress-bar-red");
+        }
+        else if( referenceDegree - userDegree >= 10 || (referenceDegree - userDegree) <= -10){
+            $('#user-progress').attr('class', "progress-bar progress-bar-yellow");
+        }
+        else{
+            $('#user-progress').attr('class',"progress-bar progress-bar-green");
+        }
+    }
+
+    setProgrees();
+    $('#calibrateBtn').click(function () {
+       if (userDegree != 0) {
+            multiplicationFactorUserBar = 100/userDegree
+       }
+    });
+            //
+    //    $(function getDeviceData() {
+    //        $.getJSON(apiHost + 'machinesData', function (data) {
+    //            devices = data;
+    //            var machineList=[];
+    //
+    //
+    //            $.each(devices, function (item) {
+    //                $('#machineChoices').append('<li id="'+ devices[item].id +'"></li>');
+    //                var extra_status, machineStatus;
+    //                if (devices[item].status =='paired'){
+    //                    console.log('Pair was found');
+    //                    machineStatus = 'Online';
+    //                    extra_status='btn-success disabled';
+    //                    $('#'+devices[item].id).css('border', '5px solid rgb(120, 222, 49)');
+    //                }
+    //                else{
+    //                    machineStatus = 'Offline';
+    //                    extra_status='btn-danger';
+    //                }
+    //
+    //                $('#'+devices[item].id).prepend('<img alt="'+ devices[item].longName +'" src="'+  devices[item].photoURI +'" />')
+    //                        .append('<p>'+ devices[item].name +'</p>')
+    //                        .append('<a href="#" class="btn btn-warning">Edit</a>&nbsp;<span style="" class="btn '+ extra_status +' ">'+ machineStatus +'</span>');
+    //
+    //
+    //
+    //
+    //            });
+    ////            $.each(data, function (key, value) {
+    ////                console.log(value);
+    ////            });
+    //        });
+    //    });
+    //
+    //
+
+    function getUserData() {
+        $.getJSON(apiHost + 'usersData', function (data) {
+            users = data;
+            console.log(data);
+        });
+    }
+
+    var getUrlParameter = function getUrlParameter(sParam) {
+        console.log('getting params');
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+
+    var machineName = getUrlParameter('machine');
+    $('#machineName').html(machineName);
+
+    function session_action(action) {
+        $.post(apiHost + "sessionmanager",
+                {
+                    action: action,
+                    machine: machineName
+                },
+                function (data, status) {
+                    if (data[0].status =="error"){
+                        $('#sessionErrorAlert').html( '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>' + "Error: " +  data[1].message);
+                        $('#sessionErrorAlert').show()
+                    }
+                });
+            }
+
+    function pauseSession() {
+        $('#pausedModal').modal('show');
+        session_action('pause');
+        session_status = 'pause';
+    }
+    
+    function stopSession() {
+        $('#completedModal').modal('show');
+        session_action('stop');
+        session_status = 'stop';
+        $('#sessionPage').delay(3000).queue(function( nxt ) {
+            var win = window.open('results.html?machine='+ machineName +'&member='+ $('#trainingMember').val(), '_self');
+            if (win) {
+                //Browser has allowed it to be opened
+                win.focus();
+            } else {
+                //Browser has blocked it
+                alert('Please allow popups for this website');
+            }
+            nxt();
+        });
+    }
+
+    $(document).ready(function () {
+        $("#playBtn").click(function () {
+            $( "#countdown3").show(0);
+            $( "#countdown3").delay(1000).hide(0);
+            $( "#countdown2").delay(1000).show(0);
+            $( "#countdown2").delay(1000).hide(0);
+            $( "#countdown1").delay(2000).show(0);
+            $( "#countdown1").delay(1000).hide(0);
+            $("#playBtn").delay(3000).queue(function( nxt ) {
+                session_action('play');
+                session_status = 'play';
+                loadLiftData();
+                nxt();
+            });
+
+        });
+
+        $("#pauseBtn").click(function () {
+            pauseSession();
+        });
+
+        $("#stopBtn").click(function () {
+            stopSession();
+        });
+
+        $("#restartBtn").click(function () {
+            session_action('restart');
+            session_status = 'restart';
+
+        });
+
+        $('#backBtn').click(function(){
+            if(document.referrer.indexOf(window.location.hostname) != -1){
+                parent.history.back();
+                return false;
+            }
+        });
+
+    });
+
+    var progressVal = 0;
+    var presentUrl = window.location.hostname;
+    var rootUrl = presentUrl[2];
+    var apiUrl = window.location.origin + ':8001/api/fit20/1.0/';
+    console.log(apiUrl);
+    var count = 0;
+    var newLiftPercent = 0;
+
+    function setProgress(progressBarID, newProgress) {
+        console.log("Progress bar setter ", newProgress);
+        var currentProgress = parseInt(document.getElementById(progressBarID).style.width);
+        if (currentProgress < 0)
+            currentProgress = 0;
+        if (newProgress > 100)
+            newProgress = 100;
+        if ((newProgress - currentProgress) && (newProgress <= 100)) {
+            $('#'+progressBarID+'-number').html(newProgress + '%');
+//            document.getElementById(progressBarID).html = (newProgress) + '%';
+            document.getElementById(progressBarID).style.width = (newProgress) + '%';
+            //  }
+        }
+        //$("#user-progress").style.width(progressVal);
+    }
+
+    var liveData = {};
+    count=0;
+
+    function loadLiftData() {
+        $.getJSON(apiHost + "sessionmanager/"+machineName ,
+                function (data) {
+                    count += 1;
+                    var msg = '';
+
+                    $.each(data, function (key, value) {
+                        liveData = data;
+                        msg += key + ' : ' + value + '\n';
+                    });
+                    final = "Count: " + count.toString() + ' ' + msg;
+                    $("#demo").html(final).toString();
+                    referenceDegree = parseInt(liveData[0].Values.referenceValue).toFixed(0);
+                    userDegree = parseInt( liveData[0].Values.memberValue).toFixed(0);
+                    $('#repCounter').html(liveData[0].Values.CurrentRep);
+                    $('#repTotal').html(liveData[0].Values.TotalReps);
+                    $('#realValue').html(liveData[0].Values.realValue);
+                    if (liveData[0].Values.State=='DONE'){
+                        stopSession();
+                        referenceDegree = 0;
+                        userDegree = 0;
+                    }
+                    console.log("degree: ", referenceDegree );
+                    setProgress('target-progress', (referenceDegree));
+                    setProgress('user-progress', (userDegree));
+                    setProgrees();
+                    session_action('update');
+                });
+        if(session_status=='play'){
+            setTimeout("loadLiftData()", 80);
+        }
+    }
+</script>
+
+
+</body>
+</html>

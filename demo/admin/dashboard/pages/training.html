@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>fit20 | User Profile</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="css/isensitGW.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="hold-transition skin-blue sidebar-collapse">
+<div class="wrapper">
+
+    <!-- Main Header -->
+    <header class="main-header">
+
+        <!-- Logo -->
+        <a href="index2.html" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>f</b>20</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>fit</b>20</span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <!-- Navbar Right Menu -->
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Messages: style can be found in dropdown.less-->
+                    <li class="dropdown messages-menu">
+                        <!-- Menu toggle button -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="label label-success">4</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">You have 4 messages</li>
+                            <li>
+                                <!-- inner menu: contains the messages -->
+                                <ul class="menu">
+                                    <li><!-- start message -->
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <!-- User Image -->
+                                                <img src="../../dist/img/user2-160x160.jpg" class="img-circle"
+                                                     alt="User Image">
+                                            </div>
+                                            <!-- Message title and timestamp -->
+                                            <h4>
+                                                Support Team
+                                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                            </h4>
+                                            <!-- The message -->
+                                            <p>Nice to meet you</p>
+                                        </a>
+                                    </li>
+                                    <!-- end message -->
+                                </ul>
+                                <!-- /.menu -->
+                            </li>
+                            <li class="footer"><a href="#">See All Messages</a></li>
+                        </ul>
+                    </li>
+                    <!-- /.messages-menu -->
+
+                    <!-- Notifications Menu -->
+                    <li class="dropdown notifications-menu">
+                        <!-- Menu toggle button -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="label label-warning">10</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">You have 10 notifications</li>
+                            <li>
+                                <!-- Inner Menu: contains the notifications -->
+                                <ul class="menu">
+                                    <li><!-- start notification -->
+                                        <a href="#">
+                                            <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                                        </a>
+                                    </li>
+                                    <!-- end notification -->
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="#">View all</a></li>
+                        </ul>
+                    </li>
+                    <!-- Tasks Menu -->
+                    <li class="dropdown tasks-menu">
+                        <!-- Menu Toggle Button -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-flag-o"></i>
+                            <span class="label label-danger">9</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">You have 9 tasks</li>
+                            <li>
+                                <!-- Inner menu: contains the tasks -->
+                                <ul class="menu">
+                                    <li><!-- Task item -->
+                                        <a href="#">
+                                            <!-- Task title and progress text -->
+                                            <h3>
+                                                Design some buttons
+                                                <small class="pull-right">20%</small>
+                                            </h3>
+                                            <!-- The progress bar -->
+                                            <div class="progress xs">
+                                                <!-- Change the css width attribute to simulate progress -->
+                                                <div class="progress-bar progress-bar-aqua" style="width: 20%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
+                                                    <span class="sr-only">20% Complete</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <!-- end task item -->
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="#">View all tasks</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- User Account Menu -->
+                    <li class="dropdown user user-menu">
+                        <!-- Menu Toggle Button -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <!-- The user image in the navbar-->
+                            <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                            <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                            <span class="hidden-xs">Saujan Ghimire</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- The user image in the menu -->
+                            <li class="user-header">
+                                <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                                <p>
+                                    Saujan Ghimire - Personal Trainer
+                                    <small>Member since Nov. 2012</small>
+                                </p>
+                            </li>
+                            <!-- Menu Body -->
+                            <li class="user-body">
+                                <div class="row">
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Followers</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Sales</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a href="#">Friends</a>
+                                    </div>
+                                </div>
+                                <!-- /.row -->
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Control Sidebar Toggle Button -->
+                    <li>
+                        <!--<a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>-->
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section   class="sidebar">
+
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>Saujan Ghimire</p>
+                    <!-- Status -->
+                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>
+
+            <!-- search form (Optional) -->
+            <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+                </div>
+            </form>
+            <!-- /.search form -->
+
+            <!-- Sidebar Menu -->
+            <ul class="sidebar-menu">
+                <li class="header">Features</li>
+                <!-- Optionally, you can add icons to the links -->
+                <!--<li class="active"><a href="../../dashboard.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>-->
+                <!--</li>-->
+                <!--<li><a href="../dashboard/pages/profile.html"><i class="fa fa-user"></i> <span>Profile</span></a></li>-->
+                <li><a href="#"><i class="fa fa-bolt"></i> <span>Training</span></a></li>
+                <!--<li><a href="#"><i class="fa fa-group"></i> <span>Members</span></a></li>-->
+                <!--<li><a href="#"><i class="fa fa-gear"></i> <span>Devices</span></a></li>-->
+                <!--<li class="treeview">-->
+                <!--<a href="#"><i class="fa fa-link"></i> <span>Gateway</span>-->
+                <!--<span class="pull-right-container">-->
+                <!--<i class="fa fa-angle-left pull-right"></i>-->
+                <!--</span>-->
+                <!--</a>-->
+                <!--<ul class="treeview-menu">-->
+                <!--<li><a href="#">Devices</a></li>-->
+                <!--<li><a href="#">Setting</a></li>-->
+                <!--</ul>-->
+                <!--</li>-->
+            </ul>
+            <!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper" style="background:white;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="callout callout-warning">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"> &times; </button>
+                <h3>Training
+                    <small style="color: #262626;  ">Please complete the steps to begin.</small>
+                </h3>
+            </div>
+
+            <!--<ol class="breadcrumb">-->
+            <!--<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>-->
+            <!--<li class="active">Here</li>-->
+            <!--</ol>-->
+        </section>
+
+        <!-- Main content -->
+        <!--<section class="content">        </section>-->
+
+        <!-- Your Page Content Here -->
+        <!-- Button trigger modal -->
+        <!-- Modal -->
+        <div class="modal fade " id="deviceSelectModal" tabindex="-1" role="dialog"
+             aria-labelledby="deviceSelectModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="deviceSelectModalLabel">Training Session</h4>
+                    </div>
+                    <div class="modal-body">
+                        Welcome, please select the equipment
+                        <div id="modalContent"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                data-target="#userSelectModal">Save changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="userSelectModal" tabindex="-1" role="dialog" aria-labelledby="userSelectModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="userSelectModalLabel">Training Session</h4>
+                    </div>
+                    <div class="modal-body">
+                        Welcome, please select the user
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" href="#userSelectModal">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--<h1 class="text-center">Welcome To Training</h1>-->
+        <!--<h3 class="text-center text-light-blue">Please complete the steps to begin</h3>-->
+
+        <section style=" margin-top: 0;">
+            <div class="container">
+                <div class="row">
+                    <div class="board">
+                        <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+                        <div style="background-color: transparent;" class="board-inner">
+                            <ul class="nav nav-tabs" id="myTab">
+                                <div class="liner"></div>
+                                <li class="active">
+                                    <a href="#home" data-toggle="tab" title="welcome">
+                      <span class="round-tabs one">
+                              <i class="glyphicon glyphicon-home"></i>
+                      </span>
+                                    </a></li>
+
+                                <li><a href="#profile" data-toggle="tab" title="profile">
+                     <span class="round-tabs two">
+                         <i class="glyphicon glyphicon-user"></i>
+                     </span>
+                                </a>
+                                </li>
+                                <li><a href="#messages" data-toggle="tab" title="bootsnipp goodies">
+                     <span class="round-tabs three">
+                          <i class="glyphicon glyphicon-wrench"></i>
+                     </span> </a>
+                                </li>
+                                <li><a href="#doner" data-toggle="" title="completed">
+                         <span class="round-tabs five">
+                              <i class="glyphicon glyphicon-ok"></i>
+                         </span> </a>
+                                </li>
+
+                            </ul>
+                        </divbackground-color>
+
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="home">
+
+                                <h3 class="head text-center">Select A Machine</h3>
+                                <!--<div id="equipmentSelect"></div>-->
+
+                                <div class="col-md-12">
+                                    <!-- USERS LIST -->
+                                    <div class="box box-danger">
+                                        <div class="box-header with-border">
+                                            <input type="text" placeholder="Your Choice" style="width: 200px;"
+                                                   class=" form-control" disabled="true" id="machineChoiceFirst">
+
+                                            <div class="box-tools pull-right">
+                                                <span class="label label-warning" id="notifMachine">2 New Machines</span>
+                                                <button data-widget="collapse" class="btn btn-box-tool" type="button"><i
+                                                        class="fa fa-minus"></i>
+                                                </button>
+                                                <button data-widget="remove" class="btn btn-box-tool" type="button"><i
+                                                        class="fa fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- /.box-header -->
+
+
+                                        <div class="box-body no-padding">
+                                            <ul class="users-list clearfix machineChoice" id="machineChoices">
+
+
+                                                <!--<li>-->
+                                                <!--<img alt="User Image" src="../../dist/img/equipmentAbdominal Crunch.png">-->
+                                                <!--<a href="#" class="users-list-name">Abdominal Crunch</a>-->
+                                                <!--<span class="users-list-date">12 Jan</span>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                <!--<img alt="User Image" src="../../dist/img/equipmentLegPress.png">-->
+                                                <!--<a href="#" class="users-list-name">Leg Press</a>-->
+                                                <!--<span class="users-list-date">13 Jan</span>-->
+                                                <!--</li>-->
+                                                <!--<div class="clearfix"></div>-->
+
+                                                <!--<li>-->
+                                                <!--<img alt="User Image" src="../../dist/img/equipmentLow Back.png">-->
+                                                <!--<a href="#" class="users-list-name">Low Back</a>-->
+                                                <!--<span class="users-list-date">14 Jan</span>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                <!--<img alt="User Image" src="../../dist/img/equipmentRotary Torso.png">-->
+                                                <!--<a href="#" class="users-list-name">Rotary Torso</a>-->
+                                                <!--<span class="users-list-date">15 Jan</span>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                <!--<img alt="User Image" src="../../dist/img/equipmentHipAbduction.png">-->
+                                                <!--<a href="#" class="users-list-name">Hip Abduction</a>-->
+                                                <!--<span class="users-list-date">12 Jan</span>-->
+                                                <!--</li>-->
+                                            </ul>
+                                            <div class="col-sm-offset-3 col-sm-6">
+                                            <a class="btn btn-success btn-outline-rounded green" style="width: 100%" id="machineChoiceBtnNext" >Next<span
+                                                    style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                                            </p>
+                                            </div>
+                                            <!-- /.users-list -->
+                                        </div>
+                                        <!-- /.box-body -->
+                                        <!-- /.box-footer -->
+
+                                    </div>
+                                    <!--/.box -->
+
+                                </div>
+
+
+                                <p class="text-center">
+
+                                <!--<a type="button" class="btn btn-info btn-lg" data-toggle="modal"-->
+                                   <!--data-target="#deviceSelectModal">Select a machine</a>-->
+                                <!--<a type="button" href="../pages/training.html" data-toggle="modal"-->
+                                   <!--data-target="#userSelectModal" class="btn btn-success btn-lg"> <span-->
+                                        <!--class="fa fa-user">&nbsp; Select a user</span></a>-->
+                            </div>
+                            <div class="tab-pane fade" id="profile">
+                                <h3 class="head text-center">Current User</h3>
+                                <!--<div id="userSelect"></div>-->
+                                <div class="col-md-12">
+
+                                    <div class="box box-widget widget-user">
+                                        <!-- Add the bg color to the header using any of the bg-* classes -->
+                                        <div class="widget-user-header bg-black" style="background: url('../../dist/img/photo1.png') center center;">
+                                            <h3 class="widget-user-username">Elizabeth Pierce</h3>
+                                            <h5 class="widget-user-desc">Fitness Enthusiast</h5>
+                                        </div>
+                                        <div class="widget-user-image">
+                                            <img class="img-circle" src="../../dist/img/user3-128x128.jpg" alt="User Avatar">
+                                        </div>
+                                        <div class="box-footer">
+                                            <div class="row">
+                                                <div class="col-sm-4 border-right">
+                                                    <div class="description-block">
+                                                        <h5 class="description-header">Member Since</h5>
+                                                        <span class="description-text">2014</span>
+                                                    </div>
+                                                    <!-- /.description-block -->
+                                                </div>
+                                                <!-- /.col -->
+                                                <div class="col-sm-4 border-right">
+                                                    <div class="description-block">
+                                                        <h5 class="description-header"></h5>
+                                                        <span class="description-text"></span>
+                                                    </div>
+                                                    <!-- /.description-block -->
+                                                </div>
+                                                <!-- /.col -->
+                                                <div class="col-sm-4">
+                                                    <div class="description-block">
+                                                        <h5 class="description-header">2</h5>
+                                                        <span class="description-text">Session</span>
+                                                    </div>
+                                                    <!-- /.description-block -->
+                                                </div>
+                                                <!-- /.col -->
+                                            </div>
+                                            <!-- /.row -->
+                                        </div>
+                                    </div>
+                                    <!-- /.widget-user -->
+                                </div>
+                                <!--<h3 class="head text-center">Select a User</h3>-->
+
+                                <!--<div class="col-md-12">-->
+                                    <!--&lt;!&ndash; USERS LIST &ndash;&gt;-->
+                                    <!--<div class="box box-danger">-->
+                                        <!--<div class="box-header with-border">-->
+                                            <!--<h3 class="box-title">Latest Users</h3>-->
+
+                                            <!--<div class="box-tools pull-right">-->
+                                                <!--<span class="label label-danger">8 New Members</span>-->
+                                                <!--<button data-widget="collapse" class="btn btn-box-tool" type="button"><i class="fa fa-minus"></i>-->
+                                                <!--</button>-->
+                                                <!--<button data-widget="remove" class="btn btn-box-tool" type="button"><i class="fa fa-times"></i>-->
+                                                <!--</button>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                        <!--&lt;!&ndash; /.box-header &ndash;&gt;-->
+                                        <!--<div class="box-body no-padding">-->
+                                            <!--<ul class="users-list clearfix">-->
+                                                <!--<li>-->
+                                                    <!--<img alt="User Image" src="../../dist/img/user1-128x128.jpg">-->
+                                                    <!--<a href="#" class="users-list-name">Saujan Ghimire</a>-->
+                                                    <!--<span class="users-list-date">Today</span>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<img alt="User Image" src="../../dist/img/user8-128x128.jpg">-->
+                                                    <!--<a href="#" class="users-list-name">Norman</a>-->
+                                                    <!--<span class="users-list-date">Yesterday</span>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<img alt="User Image" src="../../dist/img/user7-128x128.jpg">-->
+                                                    <!--<a href="#" class="users-list-name">Jane</a>-->
+                                                    <!--<span class="users-list-date">12 Jan</span>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<img alt="User Image" src="../../dist/img/user6-128x128.jpg">-->
+                                                    <!--<a href="#" class="users-list-name">John</a>-->
+                                                    <!--<span class="users-list-date">12 Jan</span>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<img alt="User Image" src="../../dist/img/user2-160x160.jpg">-->
+                                                    <!--<a href="#" class="users-list-name">Alexander</a>-->
+                                                    <!--<span class="users-list-date">13 Jan</span>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<img alt="User Image" src="../../dist/img/user5-128x128.jpg">-->
+                                                    <!--<a href="#" class="users-list-name">Sarah</a>-->
+                                                    <!--<span class="users-list-date">14 Jan</span>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<img alt="User Image" src="../../dist/img/user4-128x128.jpg">-->
+                                                    <!--<a href="#" class="users-list-name">Nora</a>-->
+                                                    <!--<span class="users-list-date">15 Jan</span>-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<img alt="User Image" src="../../dist/img/user3-128x128.jpg">-->
+                                                    <!--<a href="#" class="users-list-name">Nadia</a>-->
+                                                    <!--<span class="users-list-date">15 Jan</span>-->
+                                                <!--</li>-->
+                                            <!--</ul>-->
+                                            <!--&lt;!&ndash; /.users-list &ndash;&gt;-->
+                                        <!--</div>-->
+                                        <!--&lt;!&ndash; /.box-body &ndash;&gt;-->
+                                        <!--<div class="box-footer text-center">-->
+                                            <!--<a class="uppercase" href="javascript:void(0)">View All Users</a>-->
+                                        <!--</div>-->
+                                        <!--&lt;!&ndash; /.box-footer &ndash;&gt;-->
+                                    <!--</div>-->
+                                    <!--&lt;!&ndash;/.box &ndash;&gt;-->
+                                <!--</div>-->
+
+                                <p class="text-center">
+                                    <a class="btn btn-success btn-outline-rounded green" id="userSelectNext"> Settings
+                                        <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                                </p>
+
+                            </div>
+
+                            <div class="tab-pane fade" id="messages">
+                                <h3 class="head text-center">Training Settings</h3>
+                                <div class="col-md-12">
+                                    <!-- Horizontal Form -->
+                                    <div class="box box-info">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Training Setup</h3>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <!-- form start -->
+                                        <form class="form-horizontal" action="sessionmanager" name="trainingSetting"
+                                              method="POST" id="training_setting_form">
+                                            <div class="box-body">
+                                                <div class="form-group">
+                                                    <label for="trainingMember"
+                                                           class="col-sm-2 control-label">Member</label>
+
+                                                    <div class="col-sm-7">
+                                                        <input type="text" class="form-control" id="trainingMember"
+                                                               name="member"
+                                                               placeholder="Member Name"  disabled="true" >
+                                                    </div>
+                                                    <a type="button" class="btn btn-warning col-sm-2" id="memberChangeBtn">Change</a>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="trainingMachine"
+                                                           class="col-sm-2 control-label">Machine</label>
+
+                                                    <div class="col-sm-7">
+                                                        <input type="text" class="form-control" id="trainingMachine"
+                                                               name="machine"
+                                                               placeholder="Machine" disabled="true">
+                                                    </div>
+                                                    <a type="button" class="btn btn-warning col-sm-2 " id="machineChangeBtn" >Change</a>
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="trainingPeriod"
+                                                           class="col-sm-2 control-label">Rep Period</label>
+
+                                                    <div class="col-sm-7">
+                                                        <input type="number" class="form-control" id="trainingPeriod"
+                                                               placeholder="Repetition Period" name="period" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+
+                                                    <label for="trainingReps"
+                                                           class="col-sm-2 control-label">Rep Times</label>
+
+                                                    <div class="col-sm-7">
+                                                        <input type="number" class="form-control" id="trainingReps"
+                                                               placeholder="Repetition Times" name="repetitions">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label for="calibrateMemberMin"
+                                                               class="col-sm-2 control-label">Min-Max</label>
+                                                        <div class="col-sm-4">
+                                                            <input type="number" class="form-control" id="calibrateMemberMin"
+                                                                   name="minDeg"
+                                                                   placeholder="Min"  >
+                                                        </div>
+                                                        <div class=" col-sm-3">
+                                                            <input type="number" class="form-control" id="calibrateMemberMax"
+                                                                   name="maxDeg"
+                                                                   placeholder="Max"   >
+                                                        </div>
+                                                        <!--<a type="button" class="btn btn-info btn-flat col-sm-2" id="memberCalibrate">Calibrate</a>-->
+                                                </div>
+
+                                            </div>
+                                            <!-- /.box-body -->
+                                            <div class="box-footer">
+                                                <button type="submit" class="btn btn-success btn-block"
+                                                        id="training_setting_btn" value="Training Setting">Done
+                                                </button>
+                                            </div>
+                                            <!-- /.box-footer -->
+                                        </form>
+                                    </div>
+                                    <!-- /.box -->
+                                    <!-- general form elements disabled -->
+                                    <!-- /.box -->
+                                </div>
+
+
+
+                                <!--<p class="text-center">-->
+                                <!--<a href="" class="btn btn-success btn-outline-rounded green"> Next <span-->
+                                <!--style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>-->
+                                <!--</p>-->
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="alert alert-info alert-dismissible" id="trainingSettingAlert" hidden="true">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                Error message here
+                            </div>
+                            <!--<div class="tab-pane fade" id="settings">-->
+                            <!--<h3 class="head text-center">Drop comments!</h3>-->
+                            <!--<p class="narrow text-center">-->
+                            <!--Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.-->
+                            <!--</p>-->
+
+                            <!--<p class="text-center">-->
+                            <!--<a href="" class="btn btn-success btn-outline-rounded green"> start using bootsnipp <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>-->
+                            <!--</p>-->
+                            <!--</div>-->
+                            <div class="tab-pane fade" disabled="true" id="doner">
+                                <div class="text-center">
+                                    <i class="img-intro icon-checkmark-circle"></i>
+                                </div>
+                                <h3 class="head text-center">Thank you!</h3>
+                                <p class="narrow text-center">
+                                    Generating the training page..
+                                </p>
+                                <div id="sessionPage"></div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+            Gateway Demo
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2016 <a href="#">ISensit</a>.</strong> All rights reserved.
+    </footer>
+
+    <!-- Control Sidebar -->
+    <!--<aside class="control-sidebar control-sidebar-dark">-->
+        <!--&lt;!&ndash; Create the tabs &ndash;&gt;-->
+        <!--<ul class="nav nav-tabs nav-justified control-sidebar-tabs">-->
+            <!--<li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>-->
+            <!--<li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>-->
+        <!--</ul>-->
+        <!--&lt;!&ndash; Tab panes &ndash;&gt;-->
+        <!--<div class="tab-content">-->
+            <!--&lt;!&ndash; Home tab content &ndash;&gt;-->
+            <!--<div class="tab-pane active" id="control-sidebar-home-tab">-->
+                <!--<h3 class="control-sidebar-heading">Recent Activity</h3>-->
+                <!--<ul class="control-sidebar-menu">-->
+                    <!--<li>-->
+                        <!--<a href="javascript::;">-->
+                            <!--<i class="menu-icon fa fa-birthday-cake bg-red"></i>-->
+
+                            <!--<div class="menu-info">-->
+                                <!--<h4 class="control-sidebar-subheading">Langdon's Birthday</h4>-->
+
+                                <!--<p>Will be 23 on April 24th</p>-->
+                            <!--</div>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+                <!--&lt;!&ndash; /.control-sidebar-menu &ndash;&gt;-->
+
+                <!--<h3 class="control-sidebar-heading">Tasks Progress</h3>-->
+                <!--<ul class="control-sidebar-menu">-->
+                    <!--<li>-->
+                        <!--<a href="javascript::;">-->
+                            <!--<h4 class="control-sidebar-subheading">-->
+                                <!--Custom Template Design-->
+                                <!--<span class="pull-right-container">-->
+                  <!--<span class="label label-danger pull-right">70%</span>-->
+                <!--</span>-->
+                            <!--</h4>-->
+
+                            <!--<div class="progress progress-xxs">-->
+                                <!--<div class="progress-bar progress-bar-danger" style="width: 70%"></div>-->
+                            <!--</div>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+                <!--&lt;!&ndash; /.control-sidebar-menu &ndash;&gt;-->
+
+            <!--</div>-->
+            <!--&lt;!&ndash; /.tab-pane &ndash;&gt;-->
+            <!--&lt;!&ndash; Stats tab content &ndash;&gt;-->
+            <!--<div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>-->
+            <!--&lt;!&ndash; /.tab-pane &ndash;&gt;-->
+            <!--&lt;!&ndash; Settings tab content &ndash;&gt;-->
+            <!--<div class="tab-pane" id="control-sidebar-settings-tab">-->
+                <!--<form method="post">-->
+                    <!--<h3 class="control-sidebar-heading">General Settings</h3>-->
+
+                    <!--<div class="form-group">-->
+                        <!--<label class="control-sidebar-subheading">-->
+                            <!--Report panel usage-->
+                            <!--<input type="checkbox" class="pull-right" checked>-->
+                        <!--</label>-->
+
+                        <!--<p>-->
+                            <!--Some information about this general settings option-->
+                        <!--</p>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash; /.form-group &ndash;&gt;-->
+                <!--</form>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; /.tab-pane &ndash;&gt;-->
+        <!--</div>-->
+    <!--</aside>-->
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+    <!--<div class="control-sidebar-bg"></div>-->
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+<!-- jQuery 2.2.3 -->
+<script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="../../plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../../dist/js/demo.js"></script>
+
+<script>
+
+
+    // post for training setting
+    $(function () {
+        $("#training_setting_form").on('submit', function () {
+            var that = $(this),
+                    url = that.attr('action'),
+                    type = that.attr('method'),
+                    data = {};
+
+            that.find('[name]').each(function (index, value) {
+                var that = $(this),
+                        name = that.attr('name'),
+                        value = that.val();
+                data[name] = value;
+            });
+            data['action'] = 'create';
+            console.log(data);
+
+            $.ajax({
+                url: apiHost + url,
+                type: type,
+                data: data,
+                success: function (response) {
+                    console.log(response[0]);
+                    if (response[0].status == 'success') {
+                        console.log("request was successful");
+                        $('#myTab').find('a[href="#doner"]').tab('show');
+                        $('#sessionPage').delay(3000).queue(function( nxt ) {
+                        var win = window.open('session.html?machine='+ $('#trainingMachine').val()+'&member='+ $('#trainingMember').val(), '_self');
+                        if (win) {
+                            //Browser has allowed it to be opened
+                            win.focus();
+                        } else {
+                            //Browser has blocked it
+                            alert('Please allow popups for this website');
+                        }
+                        nxt();
+                    });
+                    }
+                    else {
+                        $('#trainingSettingAlert').html('<h3>'+ response[0].status +'</h3>' + response[0].message );
+                        $('#trainingSettingAlert').show()
+                    }
+                }
+            });
+
+            return false
+        })
+    });
+
+    var apiUrl = window.location.origin + ':8001';
+    var apiHost = apiUrl + '/api/fit20/1.0/';
+    console.log(apiHost);
+    var devices ;
+    var users;
+
+    $(function getDeviceData() {
+        $.getJSON(apiHost + 'machines', function (data) {
+            devices = data;
+            var machineList=[];
+            $.each(devices, function (item) {
+                $('#machineChoices').append('<li id="'+ devices[item].id +'"></li>');
+                var extra_status, machineStatus;
+                if (devices[item].status =='paired'){
+                    machineStatus = 'Online';
+                    extra_status='btn-success disabled';
+                    $('#'+devices[item].id).css('border', '5px solid rgb(120, 222, 49)');
+                }
+                else{
+                    machineStatus = 'Offline';
+                    extra_status='btn-danger';
+                }
+
+                $('#'+devices[item].id).prepend('<img alt="'+ devices[item].longName +'" src="'+  devices[item].photoURI +'" />')
+                        .append('<p>'+ devices[item].name +'</p>');
+//                        .append('<a href="#" class="btn btn-warning">Edit</a>&nbsp;<span style="" class="btn '+ extra_status +' ">'+ machineStatus +'</span>');
+            });
+//            $.each(data, function (key, value) {
+//                console.log(value);
+//            });
+        });
+    });
+
+
+    function getUserData() {
+        $.getJSON(apiHost + 'usersData', function (data) {
+            users = data;
+            console.log(data);
+
+//            $.each(data, function (key, value) {
+//                console.log(value);
+//            });
+        });
+    }
+
+    function generateMachineList(){
+        getDeviceData();
+        console.log(devices);
+
+    }
+
+
+    var old_choice= 0;
+
+    $('#machineChoices').on("click", "li", function () {
+        var that = $(this);
+        that.css("background-color", "rgb(95, 179, 37)");
+        id = that[0].id;
+        name = that[0].childNodes[1].innerHTML;
+        console.log(old_choice==id);
+        if (old_choice != parseInt(id)){
+            $('#'+old_choice).css("background-color", "white");
+        }
+        old_choice = parseInt(id);
+        $('#machineChoiceFirst').val(name);
+        $('#trainingMachine').val(name);
+
+        for (index in devices){
+            if (devices[index].name == name){
+                console.log("clicked");
+                $('#calibrateMemberMin').val(devices[index].minDegree);
+                $('#calibrateMemberMax').val(devices[index].maxDegree);
+            }
+        }
+    });
+
+    $('#trainingPeriod').val(10);
+    $('#trainingReps').val(3);
+    $('#calibrateMemberMin').val(0);
+    $('#calibrateMemberMax').val(360);
+    $('#trainingMember').val('Elizabeth Pierce');
+
+    $('#machineChangeBtn').click(function () {
+        $("#myTab").find('a[href="#home"]').tab('show');
+    });
+
+    $("#memberChangeBtn").click(function () {
+        $("#myTab").find('a[href="#profile"]').tab('show');
+    });
+
+    $("#machineChoiceBtnNext").click(function () {
+        $('#myTab').find('a[href="#profile"]').tab('show');
+    });
+    $("#userSelectNext").click(function () {
+        $('#myTab').find('a[href="#messages"]').tab('show');
+    });
+
+
+//
+//    $('#training_setting_btn').click(function () {
+////        if alls well
+//
+//
+//
+//        $('#myTab').find('a[href="#doner"]').tab('show');
+//        $('#sessionPage').delay(3000).queue(function( nxt ) {
+//
+//
+////            var win = window.open('session.html?machine='+ $('#trainingMachine').val()+'&member='+ $('#trainingMember').val(), '_self');
+////            if (win) {
+////                //Browser has allowed it to be opened
+////                win.focus();
+////            } else {
+////                //Browser has blocked it
+////                alert('Please allow popups for this website');
+////            }
+////            nxt();
+//        });
+//    });
+
+
+
+</script>
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. Slimscroll is required when using the
+     fixed layout. -->
+</body>
+</html>
